@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>JKT_Industries</Company>
+    <Authors>JKT</Authors>
+    <PackageId>Jet.NET.TEST</PackageId>
+    <Description>.NET wrapper for the JET API.</Description>
+  </PropertyGroup>
+
+</Project>
