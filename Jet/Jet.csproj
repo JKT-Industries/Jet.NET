@@ -8,4 +8,8 @@
     <Description>.NET wrapper for the JET API.</Description>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
 </Project>
