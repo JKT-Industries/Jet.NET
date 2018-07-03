@@ -6,7 +6,6 @@ namespace Jet
     {
         public void Log(string text)
         {
-            // added comment...
             Console.WriteLine(text);
         }
     }
