@@ -5,8 +5,13 @@ using Newtonsoft.Json;
 
 namespace Jet.Messages
 {
-    public class TokenResponse
+    public class TokenResponse : BaseResponse
     {
+        public TokenResponse(Exception ex, string message = "") : base(ex, message)
+        {
+            
+        }
+
         [JsonProperty("id_token")]
         public string IdToken { get; set; }
         

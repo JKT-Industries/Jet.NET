@@ -1,28 +1,41 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Jet.Messages;
 
 namespace Jet
 {
-    public class Main
+    public static class Main
     {
-        public void Log(string text)
+        public static async Task<TokenResponse> RetrieveToken(string user, string password)
         {
-            Console.WriteLine(text);
-        }
-
-        private async Task<TokenResponse> RetrieveToken(string user, string password)
-        {
-            var endpoint = "token";
-         
-            var request = new TokenRequest
+            try
             {
-                User = user,
-                Password = password,
-            };
+                if (string.IsNullOrWhiteSpace(user))
+                {
+                    throw new Exception("user is required.");
+                }
 
-            var response = await RestClient.Post<TokenRequest, TokenResponse>(request, endpoint).ConfigureAwait(false);            
-            return response;
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    throw new Exception("password is required.");
+                }
+                
+                var request = new TokenRequest
+                {
+                    User = user,
+                    Password = password,
+                };
+
+                var response = await RestClient.Post<TokenRequest, TokenResponse>(request, "token").ConfigureAwait(false);            
+                return response;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                Debugger.Break();
+                return new TokenResponse(ex);
+            }
         }
     }
 }

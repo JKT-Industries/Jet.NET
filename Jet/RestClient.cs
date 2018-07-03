@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -95,7 +96,8 @@ namespace Jet
                 
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                throw new Exception("Blahh");
+                Debugger.Break();
+                throw new Exception($"Post Exception, Status Code: {response.StatusCode}.");
             }
 
             var result = JsonConvert.DeserializeObject<TResult>(responseContent);
