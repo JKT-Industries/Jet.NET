@@ -2,7 +2,7 @@
 
 namespace Jet
 {
-    public class Class1
+    public class Main
     {
         public void Log(string text)
         {
